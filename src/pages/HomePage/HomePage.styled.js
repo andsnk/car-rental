@@ -32,10 +32,13 @@ export const StyledHomePage = styled.div`
 `;
 
 export const Button = styled(Link)`
- 
  background-color: #3470FF;
-  padding: 14px 44px;
+ padding: 12px 99px;
   border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: calc(20 / 14);
+  
   &:hover {
     background-color:#0B44CD;
   }
