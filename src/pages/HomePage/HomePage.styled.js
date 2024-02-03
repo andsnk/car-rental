@@ -15,7 +15,7 @@ export const StyledHomePage = styled.div`
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   color: white;
   /* opacity: 0.5; */
@@ -30,6 +30,15 @@ export const StyledHomePage = styled.div`
     background: rgba(0, 0, 0, 0.5);
   }
 `;
+
+export const HeroTitle = styled.h1`
+margin: 150px 0 100px 0;
+font-family: Montserrat;
+font-size: 48px;
+font-style: normal;
+font-weight: 600;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+`
 
 export const Button = styled(Link)`
  background-color: #3470FF;

@@ -3,11 +3,11 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.header`
   background-color: #3470ff;
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   right: 0;
   width: 100%;
-  z-index: 900;
+  z-index: 2;
   padding: 10px;
   text-align: center;
   backdrop-filter: blur(10px);

@@ -1,11 +1,11 @@
 import React from 'react'
-import {StyledHomePage, Button}  from './HomePage.styled'
+import {StyledHomePage, Button, HeroTitle}  from './HomePage.styled'
 
 const HomePage = () => {
   return (
     <div>
        <StyledHomePage>
-      <h1>Discover Ukraine with Our Car Rental Services</h1>
+      <HeroTitle>Discover Ukraine with Our Car Rental Services</HeroTitle>
       <Button to='/catalog'>Let's Go</Button>
     </StyledHomePage>
     </div>

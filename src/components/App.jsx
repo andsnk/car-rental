@@ -13,6 +13,7 @@ const FavoritesPage = lazy(() =>
 );
 
 export const App = () => {
+  
   return (
     <Routes>
       <Route

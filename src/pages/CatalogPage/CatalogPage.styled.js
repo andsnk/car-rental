@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const CarsList = styled.ul`
-  margin-top: 114px;
-  padding-bottom: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   display: grid;
   grid-template-columns: repeat(4, 274px);
   column-gap: 30px;
@@ -16,18 +16,18 @@ export const CarsItem = styled.li`
   position: relative;
 `;
 
-export const CarsTitle = styled.h3`
-  margin: 14px 0 8px 0;
-  color: #121417;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: calc(24 / 16);
-`;
 export const CarsImage = styled.img`
   width: 100%;
   height: 268px;
   object-fit: cover;
   border-radius: 14px;
+`;
+
+export const CarsTitle = styled.h2`
+  color: #121417;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: calc(24 / 16);
 `;
 
 export const InfoList = styled.ul`
@@ -41,7 +41,6 @@ export const InfoItem = styled.li`
   padding-right: 6px;
   margin-left: 2px;
   color: rgba(18, 20, 23, 0.5);
-  font-family: Manrope;
   font-size: 12px;
   line-height: calc(18 / 12);
 
@@ -73,6 +72,25 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
   &:hover {
-    background-color:#0B44CD;
+    background-color: #0b44cd;
   }
 `;
+
+export const CarModel = styled.span`
+  color: #3470ff;
+`;
+
+export const CarPrice = styled.p`
+  color: #121417;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+`;
+export const TitleCont = styled.div`
+  margin: 14px 0 8px 0;
+  display: flex;
+  justify-content: space-between;
+`;
+
