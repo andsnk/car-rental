@@ -110,9 +110,10 @@ export const RentalItem = styled.li`
   line-height: 18px; /* 150% */
   letter-spacing: -0.24px;
 `;
-export const RentalBtn = styled.button`
+export const RentalBtn = styled.a`
   /* position: absolute; */
   /* bottom: 0px; */
+  width:168px;
   margin-top: 24px;
   color: #ffffff;
   font-size: 14px;

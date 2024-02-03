@@ -32,23 +32,23 @@ export const StyledHomePage = styled.div`
 `;
 
 export const HeroTitle = styled.h1`
-margin: 150px 0 100px 0;
-font-family: Montserrat;
-font-size: 48px;
-font-style: normal;
-font-weight: 600;
-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
-`
+  margin: 150px 0 100px 0;
+  font-family: Montserrat;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+`;
 
 export const Button = styled(Link)`
- background-color: #3470FF;
- padding: 12px 99px;
+  background-color: #3470ff;
+  padding: 12px 99px;
   border-radius: 12px;
   font-weight: 600;
   font-size: 14px;
   line-height: calc(20 / 14);
-  
+
   &:hover {
-    background-color:#0B44CD;
+    background-color: #0b44cd;
   }
-`
+`;

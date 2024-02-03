@@ -11,7 +11,7 @@ import {
   Button,
   CarModel,
   CarPrice,
-  TitleCont
+  TitleCont,
 } from './CatalogPage.styled';
 import Modal from '../../components/Modal/Modal';
 import { CloseButton } from 'components/Modal/Modal.styled';
@@ -65,12 +65,13 @@ const CatalogPage = () => {
         {cars.map(car => (
           <CarsItem key={car.id}>
             <CarsImage src={car.img} alt={car.make} />
-          <TitleCont>
-          <CarsTitle>
-              {car.make} <CarModel> {car.model}</CarModel>, <span>{car.year}</span>
-            </CarsTitle>
-            <CarPrice>{car.rentalPrice}</CarPrice>
-          </TitleCont>
+            <TitleCont>
+              <CarsTitle>
+                {car.make} <CarModel> {car.model}</CarModel>,{' '}
+                <span>{car.year}</span>
+              </CarsTitle>
+              <CarPrice>{car.rentalPrice}</CarPrice>
+            </TitleCont>
             <InfoList>
               <InfoItem>{car.address.split(',')[1]}</InfoItem>
               <InfoItem>{car.address.split(',')[2]}</InfoItem>
