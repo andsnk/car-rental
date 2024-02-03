@@ -12,6 +12,8 @@ import {
   CarModel,
   CarPrice,
   TitleCont,
+  LoadMoreButton,
+  MoreButtonWrap
 } from './CatalogPage.styled';
 import Modal from '../../components/Modal/Modal';
 import { CloseButton } from 'components/Modal/Modal.styled';
@@ -21,22 +23,30 @@ const CatalogPage = () => {
   const [openModal, setOpenModal] = useState(false);
   const [selectedCar, setSelectedCar] = useState(null);
   const [noScroll, setNoScroll] = useState(false);
+  const [page, setPage] = useState(1);
+  const [hasMoreData, setHasMoreData] = useState(true);
+
 
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const data = await getCars();
+        const data = await getCars(page);
         console.log(data);
-        setCars(data);
+        if (data.length === 0) {
+          setHasMoreData(false);
+        } else {
+          setCars((prevCars) => [...prevCars, ...data]);
+          setHasMoreData(true);
+        }
       } catch (error) {
         console.error('Error fetching cars:', error);
       }
     };
 
     fetchCars();
-  }, []);
+  }, [page]);
 
-  const handleOpenModal = car => {
+  const handleOpenModal = (car) => {
     setSelectedCar(car);
     setOpenModal(true);
     setNoScroll(true);
@@ -45,6 +55,10 @@ const CatalogPage = () => {
   const handleCloseModal = () => {
     setOpenModal(false);
     setNoScroll(false);
+  };
+
+  const handleLoadMore = () => {
+    setPage((prevPage) => prevPage + 1);
   };
 
   useEffect(() => {
@@ -62,7 +76,7 @@ const CatalogPage = () => {
   return (
     <div>
       <CarsList>
-        {cars.map(car => (
+        {cars.map((car) => (
           <CarsItem key={car.id}>
             <CarsImage src={car.img} alt={car.make} />
             <TitleCont>
@@ -87,6 +101,11 @@ const CatalogPage = () => {
           </CarsItem>
         ))}
       </CarsList>
+    <MoreButtonWrap>
+    {hasMoreData && (
+        <LoadMoreButton onClick={handleLoadMore}>Load More</LoadMoreButton>
+      )}
+    </MoreButtonWrap>
       <Modal
         openModal={openModal}
         onClose={handleCloseModal}
@@ -101,6 +120,7 @@ const CatalogPage = () => {
 };
 
 export default CatalogPage;
+
 
 // import React, { useEffect, useState } from 'react';
 // import { getCars } from '../../api/api';

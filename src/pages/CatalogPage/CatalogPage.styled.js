@@ -93,3 +93,27 @@ export const TitleCont = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
+export const MoreButtonWrap = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+export const LoadMoreButton = styled.button`
+  margin-bottom: 50px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: calc(20 / 14);
+  border-radius: 12px;
+  border: none;
+  background: #3470ff;
+  display: flex;
+  width: 274px;
+  height: 44px;
+  padding: 12px 99px;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    background-color: #0b44cd;
+  }
+`;
