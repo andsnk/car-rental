@@ -26,12 +26,12 @@ import {
   MoreButtonWrap,
   Selector,
   SelectorWrap,
-  ClearFilter
+  ClearFilter,
 } from './CatalogPage.styled';
 
 const CatalogPage = () => {
   const [cars, setCars] = useState([]);
-  const [makes, setMakes] = useState([]); 
+  const [makes, setMakes] = useState([]);
   // eslint-disable-next-line
   const [selectedMake, setSelectedMake] = useState('');
   const [openModal, setOpenModal] = useState(false);
@@ -40,9 +40,8 @@ const CatalogPage = () => {
   const [page, setPage] = useState(1);
   const [hasMoreData, setHasMoreData] = useState(true);
   const dispatch = useDispatch();
-  const makeFilter = useSelector((state) => state.filter.make);
+  const makeFilter = useSelector(state => state.filter.make);
 
-  
   useEffect(() => {
     const makesFromJson = makesData.map(make => make);
     setMakes(makesFromJson);
@@ -66,7 +65,7 @@ const CatalogPage = () => {
       if (page === 1) {
         setCars(data);
       } else {
-        setCars((prevCars) => [...prevCars, ...data]);
+        setCars(prevCars => [...prevCars, ...data]);
       }
 
       setHasMoreData(data.length > 0);
@@ -75,12 +74,11 @@ const CatalogPage = () => {
     }
   };
 
-
   const handleLoadMore = () => {
-    setPage((prevPage) => prevPage + 1);
+    setPage(prevPage => prevPage + 1);
   };
 
-  const handleMakeChange = (selectedMake) => {
+  const handleMakeChange = selectedMake => {
     dispatch(setMakeFilter(selectedMake));
     setPage(1);
   };
@@ -89,7 +87,6 @@ const CatalogPage = () => {
     dispatch(clearFilters());
     setPage(1);
   };
-
 
   const handleOpenModal = car => {
     setSelectedCar(car);
@@ -120,25 +117,24 @@ const CatalogPage = () => {
 
   return (
     <div>
-     <SelectorWrap>
-     <Selector
-        value={selectedMake}
-        onChange={e => handleMakeChange(e.target.value)}
-      >
-        <option value="">Select auto</option>
-        {makes.map((make, index) => (
-          <option key={index} value={make}>
-            {make}
-          </option>
-        ))}
-      </Selector>
-      <ClearFilter onClick={handleClearFilters}>Clear Filter</ClearFilter>
-     </SelectorWrap>
-     
+      <SelectorWrap>
+        <Selector
+          value={selectedMake}
+          onChange={e => handleMakeChange(e.target.value)}
+        >
+          <option value="">Select auto</option>
+          {makes.map((make, index) => (
+            <option key={index} value={make}>
+              {make}
+            </option>
+          ))}
+        </Selector>
+        <ClearFilter onClick={handleClearFilters}>Clear Filter</ClearFilter>
+      </SelectorWrap>
 
       <CarsList>
         {cars
-          .filter(car => !selectedMake || car.make === selectedMake) 
+          .filter(car => !selectedMake || car.make === selectedMake)
           .map(car => (
             <CarsItem key={car.id}>
               <CarsImage src={car.img || placeholderImage} alt={car.make} />
@@ -164,7 +160,7 @@ const CatalogPage = () => {
                 Learn more
               </ButtonMore>
               <ButtonFavorite onClick={() => handleAddToFavorites(car)}>
-                <img src={heart} alt="close" />
+                <img src={heart} alt="heart" />
               </ButtonFavorite>
             </CarsItem>
           ))}
