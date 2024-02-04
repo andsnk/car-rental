@@ -26,6 +26,8 @@ import { useDispatch } from 'react-redux';
 
 const CatalogPage = () => {
   const [cars, setCars] = useState([]);
+  const [makes, setMakes] = useState([]); // Новий стейт для марок авто
+  const [selectedMake, setSelectedMake] = useState('');
   const [openModal, setOpenModal] = useState(false);
   const [selectedCar, setSelectedCar] = useState(null);
   const [noScroll, setNoScroll] = useState(false);
@@ -38,6 +40,8 @@ const CatalogPage = () => {
     const fetchCars = async () => {
       try {
         const data = await getCars(page);
+        const uniqueMakes = [...new Set(data.map(car => car.make))];
+        setMakes(uniqueMakes);
         console.log(data);
         if (data.length === 0) {
           setHasMoreData(false);
@@ -70,7 +74,6 @@ const CatalogPage = () => {
 
   const handleAddToFavorites = (car) => {
     dispatch(addToFavorites(car));
-    // Додайте будь-яку іншу логіку, яку ви хочете виконати після додавання до улюблених
   };
 
   useEffect(() => {
@@ -87,9 +90,17 @@ const CatalogPage = () => {
 
   return (
     <div>
+        <select value={selectedMake} onChange={(e) => setSelectedMake(e.target.value)}>
+        <option value="">All Makes</option>
+        {makes.map((make, index) => (
+          <option key={index} value={make}>{make}</option>
+        ))}
+      </select>
       <CarsList>
-        {cars.map((car) => (
-          <CarsItem key={car.id}>
+        {cars
+          .filter((car) => !selectedMake || car.make === selectedMake) // Фільтр за обраною маркою
+          .map((car) => (
+            <CarsItem key={car.id}>
             <CarsImage src={car.img || placeholderImage} alt={car.make} />
             <TitleCont>
               <CarsTitle>
@@ -133,65 +144,3 @@ const CatalogPage = () => {
 };
 
 export default CatalogPage;
-
-
-// import React, { useEffect, useState } from 'react';
-// import { getCars } from '../../api/api';
-// import { CarsList, CarsItem, CarsImage, CarsTitle, InfoList, InfoItem, Button } from './CatalogPage.styled';
-// import Modal from '../../components/Modal/Modal';
-
-// const CatalogPage = () => {
-//   const [cars, setCars] = useState([]);
-//   const [openModal, setOpenModal] = useState(false);
-//   const [selectedCar, setSelectedCar] = useState(null);
-
-//   useEffect(() => {
-//     const fetchCars = async () => {
-//       try {
-//         const data = await getCars();
-//         console.log(data);
-//         setCars(data);
-//       } catch (error) {
-//         console.error('Error fetching cars:', error);
-//       }
-//     };
-
-//     fetchCars();
-//   }, []);
-
-//   const handleOpenModal = (car) => {
-//     setSelectedCar(car);
-//     setOpenModal(true);
-//   };
-
-//   return (
-//     <div>
-//       <CarsList>
-//         {cars.map(car => (
-//           <CarsItem key={car.id}>
-//             <CarsImage src={car.img} alt={car.make} />
-//             <CarsTitle>
-//               {car.make} <span> {car.model}</span>, <span>{car.year}</span>{' '}
-//               <span>{car.rentalPrice}</span>
-//             </CarsTitle>
-//             <InfoList>
-//               <InfoItem>{car.address.split(',')[1]}</InfoItem>
-//               <InfoItem>{car.address.split(',')[2]}</InfoItem>
-//               <InfoItem>{car.rentalCompany}</InfoItem>
-//               <InfoItem>{car.type}</InfoItem>
-//               <InfoItem>{car.model}</InfoItem>
-//               <InfoItem>{car.id}</InfoItem>
-//               <InfoItem>{car.accessories[0].split(' ').slice(0, -1).join(' ')}</InfoItem>
-//             </InfoList>
-//             <Button onClick={() => handleOpenModal(car)}>Learn more</Button>
-//           </CarsItem>
-//         ))}
-//       </CarsList>
-//       <Modal openModal={openModal} onClose={() => setOpenModal(false)} selectedCar={selectedCar}>
-//         <button onClick={() => setOpenModal(false)}>x</button>
-//       </Modal>
-//     </div>
-//   );
-// };
-
-// export default CatalogPage;

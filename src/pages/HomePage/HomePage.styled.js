@@ -15,10 +15,8 @@ export const StyledHomePage = styled.div`
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  /* justify-content: center; */
   align-items: center;
   color: white;
-  /* opacity: 0.5; */
   &::before {
     z-index: -1;
     content: '';

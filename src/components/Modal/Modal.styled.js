@@ -12,7 +12,6 @@ export const ModalBackground = styled.div`
 export const ModalContent = styled.div`
   z-index: 12000;
   width: 541px;
-  /* height: 752px; */  
   background: white;
   padding: 40px;
   border-radius: 8px;
@@ -53,7 +52,6 @@ export const ModalTitle = styled.h2`
 `;
 
 export const List = styled.ul`
-  /* width: 288px; */
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
@@ -107,12 +105,10 @@ export const RentalItem = styled.li`
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
-  line-height: 18px; /* 150% */
+  line-height: 18px; 
   letter-spacing: -0.24px;
 `;
 export const RentalBtn = styled.a`
-  /* position: absolute; */
-  /* bottom: 0px; */
   width:168px;
   margin-top: 24px;
   color: #ffffff;
@@ -123,8 +119,6 @@ export const RentalBtn = styled.a`
   border: none;
   background: #3470ff;
   display: flex;
-  /* width: 274px;
-  height: 44px; */
   padding: 12px 50px;
   justify-content: center;
   align-items: center;

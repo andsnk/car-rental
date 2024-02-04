@@ -14,7 +14,6 @@ const favoriteCarsSlice = createSlice({
         if (!existingCar) {
           state.favoriteCars.push(action.payload);
         } else {
-          // If the car is already in favorites, remove it
           state.favoriteCars = state.favoriteCars.filter((car) => car.id !== action.payload.id);
         }
   
