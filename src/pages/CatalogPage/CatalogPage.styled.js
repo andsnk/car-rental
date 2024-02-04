@@ -130,3 +130,40 @@ export const LoadMoreButton = styled.button`
     background-color: #0b44cd;
   }
 `;
+
+export const Selector = styled.select`
+display: flex;
+padding: 14px 89px 14px 18px;
+justify-content: center;
+align-items: center;
+gap: 32px;
+border: none;
+border-radius: 14px;
+background-color:#F7F7FB;
+margin-top: 50px;
+`
+
+export const SelectorWrap = styled.div`
+display: flex; 
+justify-content: center;
+gap: 30px;
+`
+
+export const ClearFilter = styled.button`
+  margin-top: 50px;
+  padding: 14px 89px 14px 18px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: calc(20 / 14);
+  border-radius: 12px;
+  border: none;
+  background: #3470ff;
+  display: flex;
+  padding: 14px 89px;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    background-color: #0b44cd;
+  }
+`
