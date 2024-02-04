@@ -4,7 +4,7 @@ import { addToFavorites } from '../../redux/favoriteCarsSlice';
 
 import placeholderImage from '../../images/placeholder.webp';
 import close from '../../images/close.svg';
-import heart from '../../images/active.svg';
+import active from '../../images/active.svg';
 
 
 import {
@@ -19,8 +19,6 @@ import {
   CarModel,
   CarPrice,
   TitleCont,
-  // LoadMoreButton,
-  // MoreButtonWrap
 } from '../CatalogPage/CatalogPage.styled';
 import Modal from 'components/Modal/Modal';
 import { CloseButton } from 'components/Modal/Modal.styled';
@@ -73,7 +71,7 @@ const FavoritesPage = () => {
             Learn more
           </ButtonMore>
           <ButtonFavorite onClick={() => handleAddToFavorites(car)}>
-                <img src={heart} alt="heart" />
+                <img src={active} alt="heart" />
               </ButtonFavorite>
         </CarsItem>
       ))}

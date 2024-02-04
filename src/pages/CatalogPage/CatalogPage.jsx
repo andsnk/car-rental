@@ -8,6 +8,7 @@ import { CloseButton } from 'components/Modal/Modal.styled';
 import close from '../../images/close.svg';
 import placeholderImage from '../../images/placeholder.webp';
 import heart from '../../images/heart.svg';
+import active from '../../images/active.svg';
 import makesData from '../../api/makes';
 
 import {
@@ -41,6 +42,7 @@ const CatalogPage = () => {
   const [hasMoreData, setHasMoreData] = useState(true);
   const dispatch = useDispatch();
   const makeFilter = useSelector(state => state.filter.make);
+  const favoriteCars = useSelector(state => state.favoriteCars.favoriteCars);
 
   useEffect(() => {
     const makesFromJson = makesData.map(make => make);
@@ -160,7 +162,14 @@ const CatalogPage = () => {
                 Learn more
               </ButtonMore>
               <ButtonFavorite onClick={() => handleAddToFavorites(car)}>
-                <img src={heart} alt="heart" />
+                <img
+                  src={
+                    favoriteCars.some(favCar => favCar.id === car.id)
+                      ? active
+                      : heart
+                  }
+                  alt="heart"
+                />
               </ButtonFavorite>
             </CarsItem>
           ))}
