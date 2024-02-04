@@ -36,22 +36,3 @@ bash
 Copy code
 npm start
 The app will be available at http://localhost:3000.
-
-Folder Structure
-java
-Copy code
-car-rental/
-  ├── public/
-  ├── src/
-  │   ├── api/
-  │   ├── components/
-  │   ├── pages/
-  │   ├── redux/
-  │   ├── App.js
-  │   ├── index.js
-  │   └── ...
-  ├── .gitignore
-  ├── package.json
-  └── README.md
-Contributing
-Feel free to contribute to the project by opening issues or submitting pull requests.
