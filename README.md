@@ -22,17 +22,17 @@ To run the Car Rental App locally, follow these steps:
 
 1. **Clone the repository:**
 
-   ```bash
+
    git clone https://github.com/andsnk/car-rental
 Install dependencies:
 
-bash
-Copy code
+Install dependencies:
+
 cd car-rental
 npm install
+
 Run the app:
 
-bash
-Copy code
 npm start
+
 The app will be available at http://localhost:3000.
