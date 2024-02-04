@@ -9,12 +9,12 @@ import {
   CarsTitle,
   InfoList,
   InfoItem,
-  Button,
+  // Button,
   CarModel,
   CarPrice,
   TitleCont,
-  LoadMoreButton,
-  MoreButtonWrap
+  // LoadMoreButton,
+  // MoreButtonWrap
 } from '../CatalogPage/CatalogPage.styled';
 
 const FavoritesPage = () => {

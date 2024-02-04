@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getCars } from '../../api/api';
-import { addToFavorites, removeFromFavorites } from '../../redux/favoriteCarsSlice';
+import { addToFavorites } from '../../redux/favoriteCarsSlice';
 import close from '../../images/close.svg';
 import placeholderImage from '../../images/placeholder.webp'
 import heart from '../../images/heart.svg'
