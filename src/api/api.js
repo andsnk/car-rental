@@ -10,7 +10,6 @@ export const getCars = async (page = 1, limit = 12) => {
     },
   });
 
-  console.log(response.data, 'cars');
   return response.data;
 };
 
