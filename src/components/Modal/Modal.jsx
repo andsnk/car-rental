@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
+import placeholderImage from '../../images/placeholder.webp'
 import {
   ModalBackground,
   ModalContent,
@@ -39,7 +40,7 @@ const Modal = ({ openModal, onClose, selectedCar, children }) => {
       <ModalBackground onClick={handleBackgroundClick}>
         <ModalContent>
           {children}
-          <ModalImage src={selectedCar.img} alt={selectedCar.make} />
+          <ModalImage src={selectedCar.img || placeholderImage} alt={selectedCar.make} />
           <ModalTitle>
             {selectedCar.make} <TitleSpan> {selectedCar.model}</TitleSpan>,{' '}
             <span>{selectedCar.year}</span>

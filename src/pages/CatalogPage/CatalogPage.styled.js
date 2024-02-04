@@ -55,7 +55,7 @@ export const InfoItem = styled.li`
   }
 `;
 
-export const Button = styled.button`
+export const ButtonMore = styled.button`
   position: absolute;
   bottom: 0px;
   color: #ffffff;
@@ -74,6 +74,19 @@ export const Button = styled.button`
   &:hover {
     background-color: #0b44cd;
   }
+`;
+
+export const ButtonFavorite = styled.button`
+  position: absolute;
+  display: flex;
+  top: 14px;
+  right: 14px;
+  width: 18px;
+  height: 18px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: none;
 `;
 
 export const CarModel = styled.span`

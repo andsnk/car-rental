@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { getCars } from '../../api/api';
+import { addToFavorites, removeFromFavorites } from '../../redux/favoriteCarsSlice';
 import close from '../../images/close.svg';
+import placeholderImage from '../../images/placeholder.webp'
+import heart from '../../images/heart.svg'
+
 import {
   CarsList,
   CarsItem,
@@ -8,7 +12,8 @@ import {
   CarsTitle,
   InfoList,
   InfoItem,
-  Button,
+  ButtonMore,
+  ButtonFavorite,
   CarModel,
   CarPrice,
   TitleCont,
@@ -17,6 +22,7 @@ import {
 } from './CatalogPage.styled';
 import Modal from '../../components/Modal/Modal';
 import { CloseButton } from 'components/Modal/Modal.styled';
+import { useDispatch } from 'react-redux';
 
 const CatalogPage = () => {
   const [cars, setCars] = useState([]);
@@ -25,6 +31,7 @@ const CatalogPage = () => {
   const [noScroll, setNoScroll] = useState(false);
   const [page, setPage] = useState(1);
   const [hasMoreData, setHasMoreData] = useState(true);
+  const dispatch = useDispatch(); 
 
 
   useEffect(() => {
@@ -61,6 +68,11 @@ const CatalogPage = () => {
     setPage((prevPage) => prevPage + 1);
   };
 
+  const handleAddToFavorites = (car) => {
+    dispatch(addToFavorites(car));
+    // Додайте будь-яку іншу логіку, яку ви хочете виконати після додавання до улюблених
+  };
+
   useEffect(() => {
     if (noScroll) {
       document.body.style.overflow = 'hidden';
@@ -78,7 +90,7 @@ const CatalogPage = () => {
       <CarsList>
         {cars.map((car) => (
           <CarsItem key={car.id}>
-            <CarsImage src={car.img} alt={car.make} />
+            <CarsImage src={car.img || placeholderImage} alt={car.make} />
             <TitleCont>
               <CarsTitle>
                 {car.make} <CarModel> {car.model}</CarModel>,{' '}
@@ -97,7 +109,8 @@ const CatalogPage = () => {
                 {car.accessories[0].split(' ').slice(0, -1).join(' ')}
               </InfoItem>
             </InfoList>
-            <Button onClick={() => handleOpenModal(car)}>Learn more</Button>
+            <ButtonMore onClick={() => handleOpenModal(car)}>Learn more</ButtonMore>
+            <ButtonFavorite onClick={() => handleAddToFavorites(car)}> <img src={heart} alt="close" /></ButtonFavorite>
           </CarsItem>
         ))}
       </CarsList>
